@@ -1,58 +1,34 @@
-import { profile } from "../data/portfolio";
+﻿import { profile } from "../data/portfolio";
 import Reveal from "./Reveal";
 
 export default function Contact() {
   return (
-    <section id="contact" className="px-6 py-28">
-      <div className="mx-auto max-w-4xl">
+    <section id="contact" className="px-5 pb-24 sm:px-8 lg:pb-28">
+      <div className="mx-auto max-w-6xl">
         <Reveal>
-          <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-indigo-600/20 via-zinc-900/40 to-fuchsia-600/20 p-10 text-center sm:p-16">
-            <div className="pointer-events-none absolute inset-0 -z-10">
-              <div className="absolute left-1/2 top-0 h-64 w-64 -translate-x-1/2 rounded-full bg-indigo-500/20 blur-[100px]" />
-            </div>
-
-            <p className="text-sm font-semibold uppercase tracking-widest text-indigo-300">
-              Contact
-            </p>
-            <h2 className="mt-4 text-3xl font-bold tracking-tight text-white sm:text-4xl">
-              함께 멋진 것을 만들어요
+          <div className="relative overflow-hidden rounded-[2rem] border border-[var(--line)] bg-[var(--bg-deep)] px-8 py-14 text-white sm:px-12">
+            <div className="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full bg-[var(--accent)]/20 blur-3xl" />
+            <p className="relative text-xs font-semibold tracking-[0.24em] text-[#5eead4] uppercase">Contact</p>
+            <h2 className="font-display relative mt-4 max-w-2xl text-[clamp(2rem,5vw,3.5rem)] font-extrabold leading-[1.1] tracking-[-0.02em]">
+              완성도 높은 UI를
+              <br />
+              함께 만들어가고 싶습니다.
             </h2>
-            <p className="mx-auto mt-4 max-w-md text-zinc-300">
-              새로운 기회나 협업 제안은 언제나 환영합니다. 편하게 연락 주세요.
+            <p className="relative mt-4 max-w-lg text-white/60">
+              웹 표준과 접근성을 바탕으로 안정적이고 유지보수하기 좋은 화면을 구현하겠습니다.
             </p>
-
             <a
               href={`mailto:${profile.email}`}
-              className="mt-8 inline-flex items-center gap-2 rounded-full bg-white px-8 py-3.5 text-sm font-semibold text-zinc-900 transition-transform hover:scale-105"
+              className="relative mt-8 inline-flex rounded-full bg-[var(--accent)] px-7 py-3.5 text-sm font-semibold text-white transition hover:bg-[#0a5f56]"
             >
-              이메일 보내기
-              <span aria-hidden>→</span>
+              {profile.email}
             </a>
-
-            <div className="mt-8 flex items-center justify-center gap-6 text-sm">
-              <a
-                href={profile.github}
-                target="_blank"
-                rel="noreferrer"
-                className="text-zinc-300 transition-colors hover:text-white"
-              >
+            <div className="relative mt-8 flex gap-5 text-sm font-semibold text-white/50">
+              <a href={profile.github} target="_blank" rel="noreferrer" className="hover:text-white">
                 GitHub
               </a>
-              <span className="text-zinc-600">·</span>
-              <a
-                href={profile.linkedin}
-                target="_blank"
-                rel="noreferrer"
-                className="text-zinc-300 transition-colors hover:text-white"
-              >
+              <a href={profile.linkedin} target="_blank" rel="noreferrer" className="hover:text-white">
                 LinkedIn
-              </a>
-              <span className="text-zinc-600">·</span>
-              <a
-                href={`mailto:${profile.email}`}
-                className="text-zinc-300 transition-colors hover:text-white"
-              >
-                Email
               </a>
             </div>
           </div>

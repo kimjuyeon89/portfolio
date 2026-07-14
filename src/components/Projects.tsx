@@ -1,127 +1,144 @@
 import { featuredProjects } from "../data/portfolio";
-import type { FeaturedProject } from "../data/portfolio";
 import Reveal from "./Reveal";
 
-const shotLabels = ["메인 화면", "검색 · 레이어", "상세 · 모바일"];
-
-function ProjectPreview({ project }: { project: FeaturedProject }) {
-  return (
-    <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-indigo-600/15 via-zinc-900/40 to-fuchsia-600/15 p-5">
-      <div className="flex h-40 items-center justify-center rounded-xl border border-white/10 bg-zinc-950/50">
-        <span className="text-6xl opacity-90">{project.emoji}</span>
-      </div>
-      <div className="mt-4 grid grid-cols-3 gap-3">
-        {shotLabels.map((label) => (
-          <div
-            key={label}
-            className="flex h-16 items-center justify-center rounded-lg border border-dashed border-white/15 bg-white/[0.03] px-1 text-center text-[10px] leading-tight text-zinc-500"
-          >
-            {label}
-          </div>
-        ))}
-      </div>
-      <p className="mt-3 text-center text-[11px] text-zinc-600">
-        스크린샷 3장 권장 (이미지 교체)
-      </p>
-    </div>
-  );
-}
-
-function ProjectContent({ project }: { project: FeaturedProject }) {
-  return (
-    <div>
-      <div className="flex flex-wrap items-center gap-3">
-        <h3 className="text-2xl font-bold text-white">{project.title}</h3>
-        {project.ongoing && (
-          <span className="inline-flex items-center gap-1.5 rounded-full border border-green-400/30 bg-green-400/10 px-2.5 py-1 text-xs font-semibold text-green-300">
-            <span className="h-1.5 w-1.5 rounded-full bg-green-400" />
-            Ongoing
-          </span>
-        )}
-      </div>
-
-      <p className="mt-1.5 text-sm font-medium text-indigo-300">
-        {project.subtitle}
-      </p>
-
-      <dl className="mt-5 space-y-2 text-sm">
-        <div className="flex gap-3">
-          <dt className="w-12 flex-shrink-0 text-zinc-500">기간</dt>
-          <dd className="text-zinc-300">{project.period}</dd>
-        </div>
-        <div className="flex gap-3">
-          <dt className="w-12 flex-shrink-0 text-zinc-500">역할</dt>
-          <dd className="text-zinc-300">{project.role}</dd>
-        </div>
-        <div className="flex gap-3">
-          <dt className="w-12 flex-shrink-0 text-zinc-500">기술</dt>
-          <dd className="text-zinc-300">{project.tech.join(" · ")}</dd>
-        </div>
-      </dl>
-
-      <p className="mt-5 text-xs font-semibold uppercase tracking-wider text-zinc-500">
-        주요 작업
-      </p>
-      <ul className="mt-2.5 space-y-2">
-        {project.tasks.map((task) => (
-          <li key={task} className="flex items-start gap-2.5 text-sm text-zinc-300">
-            <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-indigo-400" />
-            {task}
-          </li>
-        ))}
-      </ul>
-
-      <div className="mt-6 flex flex-wrap items-center gap-2">
-        {project.tags.map((tag) => (
-          <span
-            key={tag}
-            className="rounded-md bg-indigo-500/10 px-2.5 py-1 text-xs font-medium text-indigo-300"
-          >
-            {tag}
-          </span>
-        ))}
-      </div>
-
-      {project.link && (
-        <a
-          href={project.link}
-          target="_blank"
-          rel="noreferrer"
-          className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-white transition-colors hover:text-indigo-400"
-        >
-          Live Site
-          <span aria-hidden>↗</span>
-        </a>
-      )}
-    </div>
-  );
-}
-
 export default function Projects() {
-  return (
-    <section id="projects" className="px-6 py-28">
-      <div className="mx-auto max-w-6xl">
-        <Reveal>
-          <p className="text-sm font-semibold uppercase tracking-widest text-indigo-400">
-            Featured Projects
-          </p>
-          <h2 className="mt-3 text-3xl font-bold tracking-tight text-white sm:text-4xl">
-            대표 프로젝트
-          </h2>
-          <p className="mt-3 max-w-2xl text-zinc-400">
-            공공·공간정보 GIS 서비스와 운영 시스템을 중심으로 진행한 대표 작업입니다.
-          </p>
-        </Reveal>
+  const openProject = (project: (typeof featuredProjects)[number]) => {
+    if (!project.link) return;
+    window.open(project.link, "_blank", "noopener,noreferrer");
+  };
 
-        <div className="mt-16 space-y-20">
-          {featuredProjects.map((project, i) => (
-            <Reveal key={project.title}>
-              <article className="grid items-center gap-8 md:grid-cols-2 md:gap-12">
-                <div className={i % 2 === 1 ? "md:order-2" : ""}>
-                  <ProjectPreview project={project} />
+  return (
+    <section id="projects" className="border-y border-[var(--line)] bg-white px-5 py-24 sm:px-8 lg:py-28">
+      <div className="mx-auto max-w-7xl">
+        <Reveal>
+          <p className="text-xs font-bold tracking-[.2em] text-[var(--accent)]">SELECTED WORK</p>
+          <div className="mt-3 flex flex-col justify-between gap-4 md:flex-row md:items-end">
+            <h2 className="text-[clamp(2rem,5vw,3.2rem)] font-extrabold tracking-[-.03em]">대표 프로젝트</h2>
+            <p className="max-w-xl text-[var(--muted)]">프로젝트의 목적보다 먼저 제 역할과 구현 범위가 보이도록 정리했습니다.</p>
+          </div>
+        </Reveal>
+        <div className="mt-12 grid gap-6 lg:grid-cols-2">
+          {featuredProjects.map((project, index) => (
+            <Reveal key={project.title} delay={(index % 2) * 60}>
+              <article
+                className={`group relative flex h-full flex-col overflow-hidden rounded-xl border border-[var(--line)] bg-white transition hover:-translate-y-1 hover:border-[var(--line-strong)] ${project.link ? "cursor-pointer" : ""}`}
+                role={project.link ? "link" : undefined}
+                tabIndex={project.link ? 0 : undefined}
+                onClick={() => openProject(project)}
+                onKeyDown={(event) => {
+                  if (project.link && (event.key === "Enter" || event.key === " ")) {
+                    event.preventDefault();
+                    openProject(project);
+                  }
+                }}
+              >
+                {project.isPrivate && <span className="absolute left-3 top-3 z-50 rounded-full bg-black/75 px-2.5 py-1 text-[11px] font-bold text-white backdrop-blur-sm">내부</span>}
+                <div className="relative">
+                {project.thumbnailGallery ? (
+                  <div className="relative block aspect-[16/8] overflow-hidden bg-slate-200">
+                    {project.thumbnailGallery.map((image, imageIndex) => (
+                      <img
+                        key={image}
+                        src={image}
+                        alt={`${project.title} 화면 ${imageIndex + 1}`}
+                        className="project-gallery-image absolute h-[72%] w-[64%] rounded-md object-cover object-top shadow-xl"
+                        style={{ animationDelay: `${-imageIndex}s` }}
+                      />
+                    ))}
+                    <div className="absolute inset-x-0 bottom-0 z-40 bg-gradient-to-t from-black/90 via-black/70 to-transparent px-6 pb-5 pt-14 text-white">
+                      <p className="text-[11px] font-bold tracking-[.12em] text-white/70">{project.subtitle}</p>
+                      <h3 className="mt-1 text-xl font-extrabold leading-tight sm:text-2xl">{project.title}</h3>
+                    </div>
+                  </div>
+                ) : project.thumbnailSecondary && project.thumbnailDesktop ? (
+                  <div className="relative aspect-[16/8] overflow-hidden bg-gradient-to-br from-slate-200 to-slate-300">
+                    <div className="absolute left-[7%] top-[10%] z-10 h-[72%] w-[72%] overflow-hidden rounded-lg bg-white shadow-lg transition-all duration-500 ease-out group-hover:left-[21%] group-hover:top-[20%] group-hover:z-20">
+                      <img src={project.thumbnailSecondary} alt={`${project.title} 보조 화면`} className={`h-full w-full object-cover object-top ${project.thumbnailSecondaryBlur ? "scale-[1.02] blur-[2px]" : ""}`} />
+                    </div>
+                    <div className="absolute left-[21%] top-[20%] z-20 h-[72%] w-[72%] overflow-hidden rounded-lg bg-white shadow-2xl transition-all duration-500 ease-out group-hover:left-[7%] group-hover:top-[10%] group-hover:z-10">
+                      <img src={project.thumbnailDesktop} alt={`${project.title} 사이트 관제 화면`} className="h-full w-full object-cover object-top" />
+                    </div>
+                    <div className="absolute inset-x-0 bottom-0 z-40 bg-gradient-to-t from-black/90 via-black/70 to-transparent px-6 pb-5 pt-14 text-white">
+                      <p className="text-[11px] font-bold tracking-[.12em] text-white/70">{project.subtitle}</p>
+                      <h3 className="mt-1 text-xl font-extrabold leading-tight sm:text-2xl">{project.title}</h3>
+                    </div>
+                  </div>
+                ) : project.thumbnailComposite ? (
+                  <div className="relative block aspect-[16/8] overflow-hidden bg-[#f5f5f5]">
+                    <img src={project.thumbnailComposite} alt={`${project.title} PC·모바일 화면`} className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.02]" />
+                    <div className="absolute inset-x-0 bottom-0 z-40 bg-gradient-to-t from-black/90 via-black/70 to-transparent px-6 pb-5 pt-14 text-white">
+                      <p className="text-[11px] font-bold tracking-[.12em] text-white/70">{project.subtitle}</p>
+                      <h3 className="mt-1 text-xl font-extrabold leading-tight sm:text-2xl">{project.title}</h3>
+                    </div>
+                  </div>
+                ) : project.thumbnailDesktop ? (
+                  <div className="relative block aspect-[16/8] overflow-hidden bg-slate-100 p-5">
+                    <div className="flex h-full items-start justify-center gap-[12%] overflow-hidden">
+                      {project.dualDeviceScroll && project.thumbnailMobile ? (
+                        <div className="relative h-full w-full">
+                          <div className="absolute bottom-[8%] right-[2%] h-[82%] w-[78%] overflow-hidden rounded-lg border-[6px] border-neutral-900 bg-white shadow-xl">
+                            <img src={project.thumbnailDesktop} alt={`${project.title} PC 화면`} className="device-page-scroll-pc h-auto w-full" />
+                            <div className="pointer-events-none absolute inset-x-0 top-0 z-10 flex h-6 items-center gap-1 bg-neutral-900 px-2">
+                              <span className="h-1.5 w-1.5 rounded-full bg-red-400" /><span className="h-1.5 w-1.5 rounded-full bg-amber-400" /><span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+                            </div>
+                          </div>
+                          <div className="absolute bottom-[3%] left-[2%] z-20 h-[74%] w-[22%] overflow-hidden rounded-[18px] border-[6px] border-neutral-900 bg-white shadow-2xl">
+                            <img src={project.thumbnailMobile} alt={`${project.title} 모바일 화면`} className="device-page-scroll-mobile h-auto w-full" />
+                            <span className="pointer-events-none absolute left-1/2 top-0 z-10 h-3 w-[44%] -translate-x-1/2 rounded-b-lg bg-neutral-900" />
+                          </div>
+                        </div>
+                      ) : project.responsiveMorph && project.thumbnailMobile ? (
+                        <div className="relative h-full w-full overflow-hidden rounded-lg border-[5px] border-slate-800 shadow-xl transition-all duration-700 ease-[cubic-bezier(.22,1,.36,1)] group-hover:w-[25%] group-hover:rounded-[22px] group-hover:border-neutral-900">
+                          <img src={project.thumbnailDesktop} alt={`${project.title} PC 화면`} className="absolute inset-0 h-full w-full object-cover object-top opacity-100 transition-opacity duration-500 group-hover:opacity-0" />
+                          <img src={project.thumbnailMobile} alt={`${project.title} 모바일 화면`} className="responsive-mobile-page absolute inset-x-0 top-0 h-auto w-full opacity-0 transition-opacity delay-200 duration-500 group-hover:opacity-100" />
+                          <div className="pointer-events-none absolute inset-x-0 top-0 z-20 flex h-7 items-center gap-1.5 bg-slate-800 px-3 transition-opacity duration-300 group-hover:opacity-0">
+                            <span className="h-2 w-2 rounded-full bg-red-400" />
+                            <span className="h-2 w-2 rounded-full bg-amber-400" />
+                            <span className="h-2 w-2 rounded-full bg-emerald-400" />
+                            <span className="ml-3 h-3 flex-1 rounded-full bg-white/15" />
+                          </div>
+                          <span className="absolute left-1/2 top-0 z-10 hidden h-3 w-[42%] -translate-x-1/2 rounded-b-lg bg-neutral-900 group-hover:block" />
+                        </div>
+                      ) : (
+                        <>
+                          <img src={project.thumbnailDesktop} alt={`${project.title} PC 화면`} className="h-[125%] w-[52%] object-cover object-top shadow-md transition duration-500 group-hover:-translate-y-1" />
+                          {project.thumbnailMobile && <img src={project.thumbnailMobile} alt={`${project.title} 모바일 화면`} className="h-[125%] w-[18%] object-cover object-top shadow-md transition duration-500 group-hover:-translate-y-1" />}
+                        </>
+                      )}
+                    </div>
+                    <span className="absolute right-4 top-3 rounded-full bg-white/90 px-3 py-1 text-xs font-bold shadow-sm">PC · MOBILE</span>
+                    <div className="absolute inset-x-0 bottom-0 z-40 bg-gradient-to-t from-black/90 via-black/70 to-transparent px-6 pb-5 pt-14 text-white">
+                      <p className="text-[11px] font-bold tracking-[.12em] text-white/70">{project.subtitle}</p>
+                      <h3 className="mt-1 text-xl font-extrabold leading-tight sm:text-2xl">{project.title}</h3>
+                    </div>
+                  </div>
+                ) : (
+                  <div className="relative flex aspect-[16/8] items-end overflow-hidden p-6" style={{ background: `linear-gradient(135deg, ${project.accent}18, #f7f8fa)` }}>
+                    <span className="absolute right-5 top-4 text-5xl font-black text-black/[.05]">{String(index + 1).padStart(2, "0")}</span>
+                    <div><p className="text-xs font-bold tracking-[.12em]" style={{ color: project.accent }}>{project.subtitle}</p><h3 className="mt-2 max-w-md text-2xl font-extrabold leading-tight">{project.title}</h3></div>
+                  </div>
+                )}
+                  {project.link && (
+                    <span className="pointer-events-none absolute bottom-5 right-5 z-50 flex items-center text-white/80 transition group-hover:text-white">
+                      <span className="mr-3 text-xs font-semibold tracking-wide">사이트 보기</span>
+                      <span className="h-px w-10 bg-current transition-all duration-300 group-hover:w-14" />
+                      <span className="-ml-px flex h-8 w-8 items-center justify-center rounded-full bg-white/20 text-base backdrop-blur-sm transition duration-300 group-hover:translate-x-1 group-hover:bg-white group-hover:text-black">→</span>
+                    </span>
+                  )}
                 </div>
-                <div className={i % 2 === 1 ? "md:order-1" : ""}>
-                  <ProjectContent project={project} />
+                <div className="flex flex-1 flex-col p-6 sm:p-7">
+                  <dl className="grid gap-3 text-sm">
+                    <div className="grid grid-cols-[80px_1fr]"><dt className="text-[var(--muted)]">서비스 유형</dt><dd className="font-semibold">{project.serviceType}</dd></div>
+                    <div className="grid grid-cols-[64px_1fr]"><dt className="text-[var(--muted)]">담당</dt><dd className="font-semibold">{project.role}</dd></div>
+                    <div className="grid grid-cols-[64px_1fr]"><dt className="text-[var(--muted)]">기여도</dt><dd className="font-semibold">{project.contribution}</dd></div>
+                    <div className="grid grid-cols-[64px_1fr]"><dt className="text-[var(--muted)]">기간</dt><dd>{project.period}</dd></div>
+                    <div className="grid grid-cols-[64px_1fr]"><dt className="text-[var(--muted)]">기술</dt><dd>{project.tech.join(" · ")}</dd></div>
+                  </dl>
+                  <div className="mt-6 border-t border-[var(--line)] pt-5">
+                    <p className="text-xs font-bold text-[var(--accent)]">주요 구현</p>
+                    <ul className="mt-3 space-y-2">{project.tasks.map(task => <li key={task} className="flex gap-2 text-sm leading-6 text-[var(--muted)]"><span aria-hidden className="text-[var(--accent)]">—</span>{task}</li>)}</ul>
+                  </div>
+                  <div className="mt-auto flex flex-wrap gap-2 pt-6">{project.tags.map(tag => <span key={tag} className="rounded-md bg-[var(--bg)] px-2.5 py-1.5 text-xs font-semibold text-[var(--muted)]">{tag}</span>)}</div>
                 </div>
               </article>
             </Reveal>

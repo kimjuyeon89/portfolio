@@ -1,22 +1,24 @@
-import Navbar from "./components/Navbar";
+﻿import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
-import Skills from "./components/Skills";
+import Career from "./components/Career";
 import Projects from "./components/Projects";
 import SelectedProjects from "./components/SelectedProjects";
+import Skills from "./components/Skills";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-zinc-950">
+    <div className="relative min-h-screen overflow-x-hidden bg-[#f7f8fa] text-[var(--ink)]">
       <Navbar />
-      <main>
+      <main id="main-content">
         <Hero />
-        <About />
         <Skills />
         <Projects />
         <SelectedProjects />
+        <Career />
+        <About />
         <Contact />
       </main>
       <Footer />

@@ -1,13 +1,13 @@
-import { profile } from "../data/portfolio";
+﻿import { profile } from "../data/portfolio";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-white/10 px-6 py-10">
-      <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 text-sm text-zinc-500 sm:flex-row">
+    <footer className="border-t border-[var(--line)] px-5 py-8 sm:px-8">
+      <div className="mx-auto flex max-w-6xl flex-col justify-between gap-2 text-sm text-[var(--muted)] sm:flex-row">
         <p>
-          © {new Date().getFullYear()} {profile.name}. All rights reserved.
+          © {new Date().getFullYear()} {profile.name}. Portfolio for Web Publisher.
         </p>
-        <p>Built with React · TypeScript · Tailwind CSS</p>
+        <p>React · TypeScript · Tailwind · GSAP</p>
       </div>
     </footer>
   );
