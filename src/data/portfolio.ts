@@ -48,14 +48,14 @@ export const profile = {
   name: "김주연",
   role: "Web Publisher",
   tagline:
-    "공공·공간정보 서비스의 복잡한 정보 구조를, 표준과 접근성을 지키는 화면으로 구현합니다.",
+    "수많은 화면에 하나의 기준을 만들고\n안정적인 UI로 구현합니다.",
   intro:
-    "공공기관 웹 구축 프로젝트에서 UI 퍼블리싱과 공통 컴포넌트 설계를 담당해 왔습니다. GIS·관리자 화면처럼 복잡한 UI를 웹 표준과 접근성에 맞춰 안정적인 구조로 구현합니다.",
+    "웹디자인부터 프론트엔드 화면 개발까지 경험하며 디자인과 개발 사이를 연결해 왔습니다. 복잡한 요구사항을 공통 UI 기준으로 정리하고, 정확한 구현과 유지보수까지 고려한 화면을 만듭니다.",
   location: "Seoul, Korea",
-  email: "jy8968@gmail.com",
+  email: "juyeoncode@gmail.com",
   github: "https://github.com/",
   linkedin: "https://linkedin.com/",
-  resumeUrl: "#",
+  resumeUrl: "/김주연_웹퍼블리셔_경력기술서.pdf",
 };
 
 export const keywords = [
@@ -68,7 +68,7 @@ export const keywords = [
 ];
 
 export const stats = [
-  { label: "경력", value: "6+", suffix: "Years" },
+  { label: "경력", value: "8+", suffix: "Years" },
   { label: "공공·공간정보", value: "10+", suffix: "Projects" },
   { label: "단독 퍼블리싱", value: "100%", suffix: "Key Works" },
 ];
@@ -80,7 +80,7 @@ export const skills: SkillGroup[] = [
   },
   {
     category: "Interaction",
-    items: ["JavaScript", "jQuery", "React", "GSAP", "Swiper", "API 연동"],
+    items: ["JavaScript", "jQuery", "React", "GSAP", "Swiper"],
   },
   {
     category: "Quality & Collab",
@@ -140,6 +140,16 @@ export const experiences: Experience[] = [
       "웹사이트 성능 개선·최적화",
     ],
   },
+  {
+    company: "브라더피(온라인쇼핑몰)",
+    role: "웹디자이너",
+    period: "2017.12 — 2018.12",
+    summary: "온라인 쇼핑몰의 상품 콘텐츠 디자인과 웹사이트 운영을 담당했습니다.",
+    highlights: [
+      "상품 상세페이지 디자인",
+      "온라인 쇼핑몰 웹사이트 운영",
+    ],
+  },
 ];
 
 export const featuredProjects: FeaturedProject[] = [
@@ -149,12 +159,11 @@ export const featuredProjects: FeaturedProject[] = [
     period: "2026.03",
     contribution: "퍼블리싱 리드",
     responsive: true,
-    role: "전력 계통도형 대시보드 UI 퍼블리싱, SVG 화면 구현",
+    role: "전력 계통도형 대시보드 UI 퍼블리싱",
     serviceType: "기업·기관 내부 운영 시스템",
     tech: ["HTML", "SCSS", "JavaScript", "SVG", "Git"],
     tasks: [
       "전력 계통도 기반 대시보드 화면 퍼블리싱",
-      "설비와 전력 흐름 표현을 위한 SVG UI 구현",
       "화면별 공통 요소 정리 및 재사용 가능한 스타일 구조 구성",
     ],
     tags: ["ESS", "Dashboard", "SVG", "Lead"],
@@ -276,7 +285,7 @@ export const selectedProjects: SelectedProject[] = [
     field: "물류 운영",
     period: "2024.02 — 2024.05",
     contribution: "50%",
-    role: "Bootstrap 커스터마이징 · CRUD · API 연동",
+    role: "Bootstrap 커스터마이징 · CRUD",
     isPrivate: true,
   },
   {
