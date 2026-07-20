@@ -30,7 +30,11 @@ export default function HeroSection() {
             </div>
           </div>
           <div className="mt-12 border-t border-white/15 pt-8"><p className="max-w-2xl whitespace-pre-line text-xl leading-relaxed text-white/70 sm:text-2xl">{profile.tagline}</p></div>
-          <div className="mt-14 flex items-center gap-4 text-[10px] font-bold tracking-[.2em] text-white/35" aria-hidden="true"><span className="relative h-12 w-7 rounded-full border border-white/25"><span className="new-scroll-dot absolute left-1/2 top-2 h-1.5 w-1.5 -translate-x-1/2 rounded-full bg-[#c8ff32]" /></span>SCROLL TO EXPLORE</div>
+          <div className="mt-8 flex flex-wrap gap-3 sm:gap-4">
+            <a data-magnetic href={`mailto:${profile.email}`} className="relative rounded-full bg-white px-6 py-3.5 text-sm font-black text-black transition-colors hover:bg-[#c8ff32] sm:px-8 sm:py-4">{profile.email}</a>
+            <a data-magnetic href={profile.resumeUrl} download className="relative rounded-full border border-white/30 px-6 py-3.5 text-sm font-black text-white transition-colors hover:border-white hover:bg-white hover:text-black sm:px-8 sm:py-4">경력기술서 다운로드</a>
+          </div>
+          <div className="mt-12 flex items-center gap-4 text-[10px] font-bold tracking-[.2em] text-white/35" aria-hidden="true"><span className="relative h-12 w-7 rounded-full border border-white/25"><span className="new-scroll-dot absolute left-1/2 top-2 h-1.5 w-1.5 -translate-x-1/2 rounded-full bg-[#c8ff32]" /></span>SCROLL TO EXPLORE</div>
         </div>
       </section>
       <div className="new-marquee border-y border-white/10 bg-[#c8ff32] py-4 text-black" aria-hidden="true"><div className="new-marquee-track text-xl font-black tracking-[.12em]">WEB ACCESSIBILITY ✦ INTERACTIVE UI ✦ RESPONSIVE DESIGN ✦ PUBLIC SERVICE ✦ WEB ACCESSIBILITY ✦ INTERACTIVE UI ✦ RESPONSIVE DESIGN ✦ PUBLIC SERVICE ✦</div></div>

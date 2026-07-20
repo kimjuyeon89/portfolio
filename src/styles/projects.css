@@ -26,6 +26,10 @@
 .new-projects-theme article { border-radius: 1.5rem; box-shadow: 0 20px 55px rgba(17, 17, 22, .06); }
 .new-projects-theme article:hover { box-shadow: 0 26px 65px rgba(109, 93, 252, .16); }
 
+.new-project-page .project-private img {
+  filter: blur(2.5px) saturate(.82) brightness(.94);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .group:hover .project-gallery-image,
   .group:hover .responsive-mobile-page,

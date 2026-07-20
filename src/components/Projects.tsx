@@ -21,7 +21,7 @@ export default function Projects({ sectionId = "new-work" }: { sectionId?: strin
           {featuredProjects.map((project, index) => (
             <Reveal key={project.title} delay={(index % 2) * 60}>
               <article
-                className={`group relative flex h-full flex-col overflow-hidden rounded-xl border border-[var(--line)] bg-white transition hover:-translate-y-1 hover:border-[var(--line-strong)] ${project.link ? "cursor-pointer" : ""}`}
+                className={`group relative flex h-full flex-col overflow-hidden rounded-xl border border-[var(--line)] bg-white transition hover:-translate-y-1 hover:border-[var(--line-strong)] ${project.isPrivate ? "project-private" : ""} ${project.link ? "cursor-pointer" : ""}`}
                 role={project.link ? "link" : undefined}
                 tabIndex={project.link ? 0 : undefined}
                 onClick={() => openProject(project)}
