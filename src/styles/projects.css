@@ -1,0 +1,34 @@
+.project-gallery-image { opacity: 0; left: 18%; top: 10%; transform: scale(.82); transition: opacity .45s ease, transform .65s ease, left .65s ease, top .65s ease; }
+.project-gallery-image:first-child { opacity: 1; left: 18%; top: 18%; z-index: 30; transform: scale(1); }
+.project-gallery-image:nth-child(2) { opacity: .68; left: 32%; top: 8%; z-index: 10; transform: scale(.82); }
+.project-gallery-image:nth-child(7) { opacity: .68; left: 4%; top: 8%; z-index: 10; transform: scale(.82); }
+.group:hover .project-gallery-image { animation: project-gallery-stack 7s infinite ease-in-out; }
+
+@keyframes project-gallery-stack {
+  0%, 8%, 100% { left: 18%; top: 18%; z-index: 30; opacity: 1; transform: scale(1); }
+  14%, 22% { left: 4%; top: 8%; z-index: 10; opacity: .68; transform: scale(.82); }
+  28%, 78% { left: 18%; top: 5%; z-index: 0; opacity: 0; transform: scale(.72); }
+  84%, 92% { left: 32%; top: 8%; z-index: 10; opacity: .68; transform: scale(.82); }
+}
+
+.group:hover .responsive-mobile-page { animation: responsive-page-scroll 6s ease-in-out infinite alternate; }
+.group:hover .device-page-scroll-pc { animation: device-page-scroll-pc 7s ease-in-out infinite alternate; }
+.group:hover .device-page-scroll-mobile { animation: device-page-scroll-mobile 7s ease-in-out infinite alternate; }
+
+@keyframes responsive-page-scroll { to { transform: translateY(-68%); } }
+@keyframes device-page-scroll-pc { to { transform: translateY(-58%); } }
+@keyframes device-page-scroll-mobile { to { transform: translateY(-60%); } }
+
+.new-projects-theme {
+  --bg: #f1eee8; --ink: #111116; --muted: #68666f; --line: rgba(17, 17, 22, .14);
+  --line-strong: #6d5dfc; --accent: #6d5dfc;
+}
+.new-projects-theme article { border-radius: 1.5rem; box-shadow: 0 20px 55px rgba(17, 17, 22, .06); }
+.new-projects-theme article:hover { box-shadow: 0 26px 65px rgba(109, 93, 252, .16); }
+
+@media (prefers-reduced-motion: reduce) {
+  .group:hover .project-gallery-image,
+  .group:hover .responsive-mobile-page,
+  .group:hover .device-page-scroll-pc,
+  .group:hover .device-page-scroll-mobile { animation: none; }
+}

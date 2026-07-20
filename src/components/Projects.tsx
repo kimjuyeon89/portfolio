@@ -1,14 +1,14 @@
 import { featuredProjects } from "../data/portfolio";
 import Reveal from "./Reveal";
 
-export default function Projects() {
+export default function Projects({ sectionId = "new-work" }: { sectionId?: string }) {
   const openProject = (project: (typeof featuredProjects)[number]) => {
     if (!project.link) return;
     window.open(project.link, "_blank", "noopener,noreferrer");
   };
 
   return (
-    <section id="projects" className="border-y border-[var(--line)] bg-white px-5 py-24 sm:px-8 lg:py-28">
+    <section id={sectionId} className="new-projects-theme border-y border-[var(--line)] bg-[#f1eee8] px-5 py-24 text-[var(--ink)] sm:px-8 lg:py-28">
       <div className="mx-auto max-w-7xl">
         <Reveal>
           <p className="text-xs font-bold tracking-[.2em] text-[var(--accent)]">SELECTED WORK</p>
@@ -119,7 +119,7 @@ export default function Projects() {
                   </div>
                 )}
                   {project.link && (
-                    <span className="pointer-events-none absolute bottom-5 right-5 z-50 flex items-center text-white/80 transition group-hover:text-white">
+                    <span className="pointer-events-none absolute bottom-5 right-5 z-50 flex items-center text-[#c8ff32] transition">
                       <span className="mr-3 text-xs font-semibold tracking-wide">사이트 보기</span>
                       <span className="h-px w-10 bg-current transition-all duration-300 group-hover:w-14" />
                       <span className="-ml-px flex h-8 w-8 items-center justify-center rounded-full bg-white/20 text-base backdrop-blur-sm transition duration-300 group-hover:translate-x-1 group-hover:bg-white group-hover:text-black">→</span>
@@ -138,7 +138,7 @@ export default function Projects() {
                     <p className="text-xs font-bold text-[var(--accent)]">주요 구현</p>
                     <ul className="mt-3 space-y-2">{project.tasks.map(task => <li key={task} className="flex gap-2 text-sm leading-6 text-[var(--muted)]"><span aria-hidden className="text-[var(--accent)]">—</span>{task}</li>)}</ul>
                   </div>
-                  <div className="mt-auto flex flex-wrap gap-2 pt-6">{project.tags.map(tag => <span key={tag} className="rounded-md bg-[var(--bg)] px-2.5 py-1.5 text-xs font-semibold text-[var(--muted)]">{tag}</span>)}</div>
+                  <div className="mt-auto flex flex-wrap gap-2 pt-6">{project.tags.map(tag => <span key={tag} className="rounded-md bg-[#c8ff32]/45 px-2.5 py-1.5 text-xs font-semibold text-black/70">{tag}</span>)}</div>
                 </div>
               </article>
             </Reveal>
