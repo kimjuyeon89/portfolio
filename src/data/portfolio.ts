@@ -34,6 +34,8 @@ export type SelectedProject = {
   contribution?: string;
   role: string;
   isPrivate?: boolean;
+  link?: string;
+  thumbnail?: string;
 };
 
 export type SkillGroup = {
@@ -346,6 +348,27 @@ export const selectedProjects: SelectedProject[] = [
     period: "2023.06",
     contribution: "100%",
     role: "지도 기반 공공 서비스 UI 리뉴얼",
+  },
+];
+
+export const personalProjects: SelectedProject[] = [
+  {
+    title: "인터랙티브 브랜드 웹사이트",
+    field: "분양 브랜드 · 인터랙션",
+    period: "2026.08",
+    contribution: "100%",
+    role: "HTML·CSS·JavaScript와 jQuery fullPage, AOS를 활용해 풀스크린 섹션 전환, 인트로 모션, 슬라이드 및 반응형 인터랙션을 구현한 분양 브랜드 웹사이트입니다.",
+    link: "https://hernuty.netlify.app/",
+    thumbnail: "/images/projects/hernity-thumbnail.avif",
+  },
+  {
+    title: "PHP 기반 기업 웹사이트",
+    field: "PHP · 그누보드 · 반응형",
+    period: "2026.08",
+    contribution: "100%",
+    role: "PHP·그누보드 기반으로 기업 소개, 구성원, 성공사례, 미디어 게시판과 온라인 상담 기능을 구성하고 Swiper·동영상 비주얼·반응형 UI를 적용한 기업 웹사이트입니다.",
+    link: "http://gyoyeonlaw.startlawyer.co.kr/",
+    thumbnail: "/images/projects/gyoyeon-thumbnail.png",
   },
 ];
 

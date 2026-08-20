@@ -26,6 +26,12 @@
 .new-projects-theme article { border-radius: 1.5rem; box-shadow: 0 20px 55px rgba(17, 17, 22, .06); }
 .new-projects-theme article:hover { box-shadow: 0 26px 65px rgba(109, 93, 252, .16); }
 
+.project-preview-card { transition: transform .65s cubic-bezier(.16,1,.3,1), opacity .45s ease, filter .45s ease; }
+.project-preview-card-back { z-index: 1; transform: translate(5%, -4%) scale(.92) rotate(2deg); filter: saturate(.75) brightness(.9); }
+.project-preview-card-front { z-index: 2; transform: translate(-3%, 4%) scale(.94) rotate(-1.5deg); }
+.project-preview-stack:hover .project-preview-card-back { z-index: 3; transform: translate(-3%, 4%) scale(.94) rotate(-1.5deg); filter: none; }
+.project-preview-stack:hover .project-preview-card-front { z-index: 1; transform: translate(5%, -4%) scale(.92) rotate(2deg); filter: saturate(.75) brightness(.9); }
+
 .new-project-page .project-private img {
   filter: blur(2.5px) saturate(.82) brightness(.94);
 }
@@ -35,4 +41,5 @@
   .group:hover .responsive-mobile-page,
   .group:hover .device-page-scroll-pc,
   .group:hover .device-page-scroll-mobile { animation: none; }
+  .project-preview-card { transition: none; }
 }

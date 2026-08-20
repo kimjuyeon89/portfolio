@@ -4,7 +4,6 @@ export const portfolioNavLinks = [
   { href: "#new-archive", label: "ARCHIVE" },
   { href: "#new-experience", label: "EXPERIENCE" },
   { href: "#new-skills", label: "SKILLS" },
-  { href: "#new-play", label: "PLAY" },
   { href: "#new-contact", label: "CONTACT" },
 ] as const;
 

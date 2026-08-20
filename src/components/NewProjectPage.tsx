@@ -1,6 +1,5 @@
 import { useRef } from "react";
 import { usePortfolioAnimations } from "../hooks/usePortfolioAnimations";
-import MiniGame from "./MiniGame";
 import Projects from "./Projects";
 import ArchiveSection from "./portfolio/ArchiveSection";
 import ContactSection from "./portfolio/ContactSection";
@@ -29,7 +28,6 @@ export default function NewProjectPage() {
         <ArchiveSection />
         <ExperienceSection />
         <SkillsSection />
-        <div id="new-play"><MiniGame /></div>
         <ContactSection />
       </main>
       <PortfolioFooter />

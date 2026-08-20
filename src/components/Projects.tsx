@@ -31,8 +31,17 @@ export default function Projects({ sectionId = "new-work" }: { sectionId?: strin
               <Reveal key={project.title}>
                 <article className="overflow-hidden rounded-3xl border border-[var(--line)] bg-white shadow-sm">
                   <div className="grid lg:grid-cols-[.9fr_1.1fr]">
-                    <div className="relative h-80 overflow-hidden bg-slate-200 lg:h-auto lg:min-h-0">
-                      {images[0] ? <img src={images[0]} alt={`${project.title} 대표 화면`} className={`absolute inset-0 h-full w-full object-cover object-center ${project.isPrivate ? "scale-[1.01] blur-[1.5px] brightness-75 saturate-75" : ""}`} /> : <div className="absolute inset-0" style={{ background: `linear-gradient(135deg, ${project.accent}, #171717)` }} />}
+                    <div className="relative h-80 overflow-hidden bg-[#d5d7dc] lg:h-auto lg:min-h-0">
+                      {images[0] ? project.isPrivate ? (
+                        <img src={images[0]} alt={`${project.title} 대표 화면`} className="absolute inset-0 h-full w-full scale-[1.01] object-cover object-center blur-[1.5px] brightness-75 saturate-75" />
+                      ) : images[1] && project.thumbnailGallery ? (
+                        <div className="project-preview-stack absolute inset-x-6 top-1/2 aspect-[16/10] -translate-y-1/2 sm:inset-x-9">
+                          <img src={images[1]} alt={`${project.title} 상세 화면`} className="project-preview-card project-preview-card-back absolute inset-0 h-full w-full rounded-2xl border border-black/10 bg-white object-cover object-top shadow-xl" />
+                          <img src={images[0]} alt={`${project.title} 메인 화면`} className="project-preview-card project-preview-card-front absolute inset-0 h-full w-full rounded-2xl border border-black/10 bg-white object-cover object-top shadow-xl" />
+                        </div>
+                      ) : (
+                        <img src={images[0]} alt={`${project.title} 대표 화면`} className="absolute inset-0 h-full w-full object-cover object-center" />
+                      ) : <div className="absolute inset-0" style={{ background: `linear-gradient(135deg, ${project.accent}, #171717)` }} />}
                       {project.isPrivate && <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/15 via-black/25 to-black/50" aria-hidden="true" />}
                       <span className="absolute left-5 top-5 rounded-full bg-black/80 px-3 py-1.5 text-xs font-bold text-white">{String(index + 1).padStart(2, "0")} · {project.contribution}</span>
                       {project.isPrivate && <p className="absolute inset-x-5 bottom-5 rounded-xl bg-black/80 p-4 text-sm leading-6 text-white">내부 업무 시스템으로 보안상 전체 화면과 소스 코드는 공개하지 않았습니다.</p>}
