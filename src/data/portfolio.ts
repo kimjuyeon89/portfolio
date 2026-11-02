@@ -99,7 +99,6 @@ export const skills: SkillGroup[] = [
     items: [
       { name: "JavaScript · jQuery", description: "탭·모달·메뉴·폼 인터랙션 구현 및 기존 스크립트 분석·수정" },
       { name: "GSAP · Swiper", description: "반응형 모션과 슬라이드 인터랙션 구현 및 커스터마이징" },
-      { name: "Toast UI Grid", description: "레거시 테이블의 Grid 마이그레이션 및 컬럼·헤더·셀 UI 조정" },
     ],
   },
   {
@@ -117,9 +116,9 @@ export const experiences: Experience[] = [
   {
     company: "이프커뮤니티",
     role: "Web Publisher",
-    period: "2023.06 — 현재",
+    period: "2023.06 — 2026.09",
     summary:
-      "공공기관·공공서비스 웹 구축 프로젝트의 UI 퍼블리싱을 담당합니다.",
+      "공공기관·공공서비스 웹 구축 프로젝트의 UI 퍼블리싱을 담당했습니다.",
     highlights: [
       "HTML · SCSS · JavaScript 기반 반응형 웹 퍼블리싱",
       "KRDS 기반 UI 및 버튼·탭·폼·패널 등 공통 컴포넌트 구현",
@@ -295,12 +294,11 @@ export const featuredProjects: FeaturedProject[] = [
       "KRDS 토큰 구조 분석 및 프로젝트 적용 기준 수립",
       "버튼·입력폼·탭·테이블·팝업 등 공통 UI 기준 정리",
       "레거시 JSP 구조와 신규 디자인 시스템 간 적용 방식 조율",
-      "약 1,000개 화면의 Toast UI Grid 마이그레이션",
       "키보드 접근·초점 이동·폼 레이블 등 접근성 지적사항 개선",
     ],
     challenge: "기존 JSP 기능을 유지하면서 구조가 다른 KRDS 디자인 시스템을 대규모 레거시 화면에 적용해야 했습니다.",
     solution: "기능 영향도를 기준으로 마크업 변경 범위를 구분하고, 기존 구조 유지가 필요한 영역과 신규 컴포넌트 적용 영역을 나눠 안정적으로 디자인 시스템을 이식했습니다.",
-    achievement: "약 1,000개 화면의 UI 개편과 Grid 적용을 완료하고 접근성 감리 최종 검수를 통과했습니다.",
+    achievement: "약 1,000개 화면의 UI 개편을 완료하고 접근성 감리 최종 검수를 통과했습니다.",
     tags: ["KRDS", "A11y", "Audit", "Real Estate"],
     isPrivate: true,
     thumbnailDesktop: "/images/projects/krds.png",
