@@ -46,15 +46,15 @@ export default function ArchiveSection() {
   return (
     <section id="new-archive" className="px-5 py-24 sm:px-10 sm:py-32">
       <div className="mx-auto max-w-[1440px]">
-        <p className="mb-2 text-xs font-bold tracking-[.18em] text-[#c8ff32]">PROFESSIONAL PROJECT ARCHIVE</p>
-        <h2 className="mb-8 text-3xl font-black sm:text-5xl">추가 실무 프로젝트</h2>
-        {renderProjectRows(selectedProjects, index => String(index + 6).padStart(2, "0"))}
-        <p className="border-t border-white/15 pt-6 text-sm text-white/35">{privacyNote}</p>
+        <p className="mb-2 text-xs font-bold tracking-[.18em] text-[#c8ff32]">PERSONAL PROJECTS</p>
+        <h2 className="mb-8 text-3xl font-black sm:text-5xl">개인 프로젝트</h2>
+        {renderProjectRows(personalProjects, index => `P${String(index + 1).padStart(2, "0")}`, true)}
+        <div className="border-t border-white/15" />
         <div className="mt-20">
-          <p className="mb-2 text-xs font-bold tracking-[.18em] text-[#c8ff32]">PERSONAL PROJECTS</p>
-          <h2 className="mb-8 text-3xl font-black sm:text-5xl">개인 프로젝트</h2>
-          {renderProjectRows(personalProjects, index => `P${String(index + 1).padStart(2, "0")}`, true)}
-          <div className="border-t border-white/15" />
+          <p className="mb-2 text-xs font-bold tracking-[.18em] text-[#c8ff32]">PROFESSIONAL PROJECT ARCHIVE</p>
+          <h2 className="mb-8 text-3xl font-black sm:text-5xl">추가 실무 프로젝트</h2>
+          {renderProjectRows(selectedProjects, index => String(index + 6).padStart(2, "0"))}
+          <p className="border-t border-white/15 pt-6 text-sm text-white/35">{privacyNote}</p>
         </div>
       </div>
       {hoverPreview && (
