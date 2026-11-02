@@ -356,7 +356,7 @@ export const personalProjects: SelectedProject[] = [
     period: "2026.08",
     contribution: "100%",
     role: "HTML·CSS·JavaScript와 jQuery fullPage, AOS를 활용해 풀스크린 섹션 전환, 인트로 모션, 슬라이드 및 반응형 인터랙션을 구현한 분양 브랜드 웹사이트입니다.",
-    link: "https://hernuty.netlify.app/",
+    link: "https://hernity.netlify.app/",
     thumbnail: "/images/projects/hernity-thumbnail.avif",
   },
   {
